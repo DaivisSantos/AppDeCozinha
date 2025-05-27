@@ -71,4 +71,4 @@ export function Ingredients() {
     </View>
   );
 }
-export default Ingredients;
+export default Ingredients;     
