@@ -4,6 +4,7 @@ import { styles } from "./styles";
 import { useEffect, useState } from "react";
 import { Selected } from "../Selected";
 import { router } from "expo-router";
+import { IngredientsService } from "@/services/ingredients";
 
 export function Ingredients() {
 
@@ -41,6 +42,10 @@ export function Ingredients() {
   onPress: () => router.navigate("/recipes"),
 }])
   }
+
+useEffect(() => {
+   IngredientsService().then(console.log)
+}, [])
 
   return (
     <View style={{ flex: 1 }}>

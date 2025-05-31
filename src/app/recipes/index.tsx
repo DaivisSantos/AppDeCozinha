@@ -10,7 +10,7 @@ export function Recipes() {
     <View style={styles.container}>
       <View style={styles.header}>
         <MaterialIcons name="arrow-back" size={32} color="black" onPress={() => router.back()}/>
-        <Text>ingredientes</Text>
+        <Text style={styles.title}>ingredientes</Text>
 
       <FlatList
         data={["1"]}
