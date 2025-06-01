@@ -4,7 +4,8 @@ import { styles } from "./styles";
 import { useEffect, useState } from "react";
 import { Selected } from "../Selected";
 import { router } from "expo-router";
-import { IngredientsService } from "@/services/ingredients";
+import { Services } from "@/services";
+
 
 export function Ingredients() {
 
@@ -44,7 +45,7 @@ export function Ingredients() {
   }
 
 useEffect(() => {
-   IngredientsService().then(console.log)
+   Services.ingredients.IngredientsService().then(console.log)
 }, [])
 
   return (
