@@ -5,10 +5,12 @@ import { useEffect, useState } from "react";
 import { Selected } from "../Selected";
 import { router } from "expo-router";
 import { Services } from "@/services";
+import { IngredientsResponse } from "@/services/services.types";
 
 
 export function Ingredients() {
 
+  const [ingredients, setIngredients] = useState<IngredientsResponse[]>([])
   const [selecionados, setSelecionados] = useState<string[]>([])
 
   function mudancaDeSelecao(value: string){
@@ -45,7 +47,7 @@ export function Ingredients() {
   }
 
 useEffect(() => {
-   Services.ingredients.IngredientsService().then(console.log)
+   Services.ingredients.IngredientsService().then((data) => setIngredients(data));
 }, [])
 
   return (
@@ -55,11 +57,11 @@ useEffect(() => {
         showsVerticalScrollIndicator={false}
       >
         {
-          Array.from({ length: 100 }).map((_, index) => (
+          ingredients.map((ingredient, index) => (
             <Ingredient
               key={index}
               image={require("@/assets/apple.png")}
-              produto="Maçã"
+              produto={ingredient.name}
             selected={selecionados.includes(String(index))}
             onPress={() => mudancaDeSelecao(String(index))}
           />
