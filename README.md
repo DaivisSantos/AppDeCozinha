@@ -20,9 +20,8 @@ Este projeto utiliza as seguintes tecnologias:
 
 ## 📂 Estrutura de Pastas
 
-A estrutura do projeto está organizada da seguinte forma:
-
-.
+**A estrutura do projeto está organizada da seguinte forma:**
+```bash
 ├── src/
 │   ├── app/                 # Telas principais do aplicativo e navegação
 │   │   ├── _layout.tsx      # Layout principal do Expo Router
@@ -53,7 +52,7 @@ A estrutura do projeto está organizada da seguinte forma:
 ├── package.json             # Dependências e scripts do projeto
 ├── tsconfig.json            # Configurações do TypeScript
 └── README.md                # Este arquivo
-
+```
 
 ## ⚙️ Configuração e Instalação
 
