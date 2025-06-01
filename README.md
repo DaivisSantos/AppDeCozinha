@@ -109,5 +109,3 @@ Se você deseja contribuir ou entender melhor o código:
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo `LICENSE` (se existir) para mais detalhes.
 
 ---
-
-Espero que este `README.md` seja útil para o seu repositório temporário! Se precisar de algo mais, é só avisar!
