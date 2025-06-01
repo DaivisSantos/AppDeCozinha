@@ -13,7 +13,7 @@ Este projeto utiliza as seguintes tecnologias:
 * **React Native**: Framework para desenvolvimento de aplicativos móveis multiplataforma.
 * **Expo**: Plataforma e conjunto de ferramentas para desenvolvimento de aplicativos React Native.
 * **TypeScript**: Linguagem de programação que adiciona tipagem estática ao JavaScript, aumentando a robustez do código.
-* **Supabase**: Backend-as-a-Service (BaaS) de código aberto, utilizado para o banco de dados e autenticação.
+* **Supabase**: Backend-as-a-Service (BaaS) de código aberto, utilizado para o banco de dados e autenticação, v1.35.6.
 * **Expo Router**: Solução de roteamento para aplicativos Expo, simplificando a navegação.
 * **React Native Reanimated**: Biblioteca para animações e interações fluidas.
 * **@expo-google-fonts/poppins**: Para a gestão de fontes personalizadas.
