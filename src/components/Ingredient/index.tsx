@@ -1,6 +1,6 @@
 import { Text, Image, TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { styles } from "./styles";
-import { Services } from "@/services";
+import { services } from "@/services";
 
 export type IngredientProps = {
   image: string;
@@ -10,7 +10,7 @@ export type IngredientProps = {
 
 export function Ingredient({ image, produto, selected = true, ...rest }: IngredientProps & TouchableOpacityProps) {
   
-  const imageUrl = Services.Storage.imagePath
+  const imageUrl = services.storage.imagePath
   
   return (
     <TouchableOpacity

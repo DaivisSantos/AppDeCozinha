@@ -4,13 +4,13 @@ import { styles } from "./styles";
 import { useEffect, useState } from "react";
 import { Selected } from "../Selected";
 import { router } from "expo-router";
-import { Services } from "@/services";
-import { IngredientsResponse } from "@/services/services.types";
+import { services } from "@/services";
+import { IngredientResponse } from "@/services/services.types";
 
 
 export function Ingredients() {
 
-  const [ingredients, setIngredients] = useState<IngredientsResponse[]>([])
+  const [ingredients, setIngredients] = useState<IngredientResponse[]>([])
   const [selecionados, setSelecionados] = useState<string[]>([])
 
   function mudancaDeSelecao(value: string){
@@ -47,7 +47,7 @@ export function Ingredients() {
   }
 
 useEffect(() => {
-   Services.ingredients.IngredientsService().then((data) => setIngredients(data));
+   services.ingredients.findAll().then((data) => setIngredients(data));
 }, [])
 
   return (

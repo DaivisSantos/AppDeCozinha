@@ -1,4 +1,4 @@
-import { IngredientsResponse } from "./services.types";
+import { IngredientsResponse } from "@/services/services.types";
 import { supabase } from "./supabase";
 
 export async function IngredientsService(): Promise<IngredientsResponse[]> {
