@@ -3,3 +3,7 @@ export type IngredientsResponse = {
   name: string;
   image: string;
 }
+
+export type ImagesResponse = {
+  id: string
+}

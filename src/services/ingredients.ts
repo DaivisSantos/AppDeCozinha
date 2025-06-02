@@ -6,7 +6,6 @@ export async function IngredientsService(): Promise<IngredientsResponse[]> {
     .from('ingredients')
     .select('*')
     .order('name', { ascending: true })
-   
 
     if (error) {
       throw error;

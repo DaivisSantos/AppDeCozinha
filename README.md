@@ -10,17 +10,18 @@ O CookApp é um projeto desenvolvido em React Native e Expo que visa simplificar
 
 Este projeto utiliza as seguintes tecnologias:
 
-* **React Native**: Framework para desenvolvimento de aplicativos móveis multiplataforma.
-* **Expo**: Plataforma e conjunto de ferramentas para desenvolvimento de aplicativos React Native.
-* **TypeScript**: Linguagem de programação que adiciona tipagem estática ao JavaScript, aumentando a robustez do código.
-* **Supabase**: Backend-as-a-Service (BaaS) de código aberto, utilizado para o banco de dados e autenticação, v1.35.6.
-* **Expo Router**: Solução de roteamento para aplicativos Expo, simplificando a navegação.
-* **React Native Reanimated**: Biblioteca para animações e interações fluidas.
-* **@expo-google-fonts/poppins**: Para a gestão de fontes personalizadas.
+- **React Native**: Framework para desenvolvimento de aplicativos móveis multiplataforma.
+- **Expo**: Plataforma e conjunto de ferramentas para desenvolvimento de aplicativos React Native.
+- **TypeScript**: Linguagem de programação que adiciona tipagem estática ao JavaScript, aumentando a robustez do código.
+- **Supabase**: Backend-as-a-Service (BaaS) de código aberto, utilizado para o banco de dados e autenticação, v1.35.6.
+- **Expo Router**: Solução de roteamento para aplicativos Expo, simplificando a navegação.
+- **React Native Reanimated**: Biblioteca para animações e interações fluidas.
+- **@expo-google-fonts/poppins**: Para a gestão de fontes personalizadas.
 
 ## 📂 Estrutura de Pastas
 
 **A estrutura do projeto está organizada da seguinte forma:**
+
 ```bash
 ├── src/
 │   ├── app/                 # Telas principais do aplicativo e navegação
@@ -70,9 +71,10 @@ Siga os passos abaixo para configurar e rodar o projeto localmente:
     yarn install
     ```
 3.  **Configuração do Supabase:**
-    * Crie um projeto no [Supabase](https://supabase.com/).
-    * No arquivo `src/services/supabase.ts`, substitua `SUPABASE_URL` e `SUPABASE_ANON_KEY` pelas suas credenciais do projeto Supabase.
-    * Garanta que você tenha uma tabela chamada `ingredients` com as colunas `id` (uuid ou int), `name` (text) e `image` (text) para que o serviço de ingredientes funcione corretamente.
+
+    - Crie um projeto no [Supabase](https://supabase.com/).
+    - No arquivo `src/services/supabase.ts`, substitua `SUPABASE_URL` e `SUPABASE_ANON_KEY` pelas suas credenciais do projeto Supabase.
+    - Garanta que você tenha uma tabela chamada `ingredients` com as colunas `id` (uuid ou int), `name` (text) e `image` (text) para que o serviço de ingredientes funcione corretamente.
 
 4.  **Inicie o aplicativo:**
     ```bash
@@ -84,25 +86,25 @@ Siga os passos abaixo para configurar e rodar o projeto localmente:
 
 Após iniciar o aplicativo:
 
-* Na tela inicial, você verá uma lista de ingredientes.
-* Toque nos ingredientes para selecioná-los.
-* Um botão de "Encontrar" aparecerá na parte inferior da tela.
-* Toque em "Encontrar" para ver as receitas que podem ser feitas com os ingredientes selecionados.
+- Na tela inicial, você verá uma lista de ingredientes.
+- Toque nos ingredientes para selecioná-los.
+- Um botão de "Encontrar" aparecerá na parte inferior da tela.
+- Toque em "Encontrar" para ver as receitas que podem ser feitas com os ingredientes selecionados.
 
 ## ✨ Funcionalidades Principais (Atualmente Implementadas/Em Desenvolvimento)
 
-* **Seleção de Ingredientes:** Permite ao usuário selecionar múltiplos ingredientes de uma lista.
-* **Busca de Receitas:** Navegação para uma tela de receitas (funcionalidade de busca real em desenvolvimento).
-* **Tema Customizável:** Definição de cores, fontes e bordas para uma experiência visual consistente.
-* **Integração com Supabase:** Conexão com o Supabase para gerenciar dados de ingredientes.
+- **Seleção de Ingredientes:** Permite ao usuário selecionar múltiplos ingredientes de uma lista.
+- **Busca de Receitas:** Navegação para uma tela de receitas (funcionalidade de busca real em desenvolvimento).
+- **Tema Customizável:** Definição de cores, fontes e bordas para uma experiência visual consistente.
+- **Integração com Supabase:** Conexão com o Supabase para gerenciar dados de ingredientes.
 
 ## 🛠️ Desenvolvimento
 
 Se você deseja contribuir ou entender melhor o código:
 
-* **Tipagem com TypeScript:** O projeto utiliza TypeScript para garantir a segurança de tipo e facilitar a manutenção do código. Os tipos de dados para serviços são definidos em `src/types/services.types.d.ts`.
-* **Estrutura de Componentes:** Componentes como `Ingredient`, `Selected` e `Recipe` são modularizados para reuso e clareza.
-* **Animações:** Utiliza `react-native-reanimated` para algumas animações da interface.
+- **Tipagem com TypeScript:** O projeto utiliza TypeScript para garantir a segurança de tipo e facilitar a manutenção do código. Os tipos de dados para serviços são definidos em `src/types/services.types.d.ts`.
+- **Estrutura de Componentes:** Componentes como `Ingredient`, `Selected` e `Recipe` são modularizados para reuso e clareza.
+- **Animações:** Utiliza `react-native-reanimated` para algumas animações da interface.
 
 ## 📄 Licença
 

@@ -42,7 +42,7 @@ export function Ingredients() {
   },
 {
   text: "Buscar",
-  onPress: () => router.navigate("/recipes"),
+  onPress: () => router.navigate(`../recipes/${selecionados.join(",")}`),
 }])
   }
 
@@ -57,17 +57,17 @@ useEffect(() => {
         showsVerticalScrollIndicator={false}
       >
         {
-          ingredients.map((ingredient, index) => (
+          ingredients.map((ingredient) => (
             <Ingredient
-              key={index}
-              image={require("@/assets/apple.png")}
+              key={ingredient.id}
+              image={ingredient.image}
               produto={ingredient.name}
-            selected={selecionados.includes(String(index))}
-            onPress={() => mudancaDeSelecao(String(index))}
-          />
-        ))
-      }
-    </ScrollView>
+              selected={selecionados.includes(String(ingredient.id))}
+              onPress={() => mudancaDeSelecao(String(ingredient.id))}
+            />
+          ))
+        }
+      </ScrollView>
 
     {selecionados.length > 0 && (
       <Selected
