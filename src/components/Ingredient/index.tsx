@@ -3,9 +3,12 @@ import { styles } from "./styles";
 import { services } from "@/services";
 
 export type IngredientProps = {
+  name: string;
   image: string;
   produto: string;
   selected?: boolean;
+  id?: string | number;
+  onPress?: () => void;
 }
 
 export function Ingredient({ image, produto, selected = true, ...rest }: IngredientProps & TouchableOpacityProps) {

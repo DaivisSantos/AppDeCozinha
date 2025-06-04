@@ -1,11 +1,11 @@
+import { PreparationsResponse } from "./services.types"
 import { supabase } from "./supabase"
 
-async function findByRecipeId(id: string) {
-  const { data } = await supabase
+async function findByRecipeId(id: string): Promise<PreparationsResponse[]> {
+  const { data }: {data: PreparationsResponse[] | null} = await supabase
     .from("preparations")
     .select()
     .eq("recipe_id", id)
-    .returns<PreparationsResponse[]>()
 
   return data ?? []
 }

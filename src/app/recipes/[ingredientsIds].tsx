@@ -4,18 +4,38 @@ import { router, useLocalSearchParams } from "expo-router";
 import { Recipe } from "@/components/Recipe";
 
 import { styles } from "./styles";
+import { useEffect, useState } from "react";
+import { services } from "@/services";
+import { IngredientResponse } from "@/services/services.types";
+import Ingredients from "@/components/Ingredients";
 
 export function Recipes() {
+  const [ingredients, setIngredients] = useState<IngredientResponse[]>([]);
+
   const params = useLocalSearchParams<{ingredientsIds: string}>();
   const ingredientesIds= params.ingredientsIds.split(",")
-  console.log(ingredientesIds);
+  
+  useEffect(() => {
+    services.ingredients.findByIds(ingredientesIds).then(setIngredients)
+  }, [])
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <MaterialIcons name="arrow-back" size={32} color="black" onPress={() => router.back()}/>
         <Text style={styles.title}>ingredientes</Text>
+      </View>
 
-      <FlatList
+    <Ingredients 
+      ingredients={ingredients.map(ingredient => ({
+        ...ingredient,
+        produto: ingredient.name 
+      }))}
+      selecionados={[]}
+      onChange={() => {}}
+    />
+
+      <FlatList 
         data={["1"]}
         keyExtractor={item => item}
         renderItem={() => (
@@ -25,7 +45,7 @@ export function Recipes() {
             minutes: 10,
            }}/>
         )}/>
-      </View>
+      
     </View>
   );
 }

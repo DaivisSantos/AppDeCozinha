@@ -1,54 +1,16 @@
-import { Alert, ScrollView, View } from "react-native";
-import Ingredient from "../Ingredient";
+import { ScrollView, View } from "react-native";
+import { Ingredient, IngredientProps } from "../Ingredient";
 import { styles } from "./styles";
-import { useEffect, useState } from "react";
 import { Selected } from "../Selected";
-import { router } from "expo-router";
-import { services } from "@/services";
-import { IngredientResponse } from "@/services/services.types";
+
+type props = {
+  ingredients: IngredientProps[]
+  selecionados: string[]
+  onChange: (value: string) => void
+}
 
 
-export function Ingredients() {
-
-  const [ingredients, setIngredients] = useState<IngredientResponse[]>([])
-  const [selecionados, setSelecionados] = useState<string[]>([])
-
-  function mudancaDeSelecao(value: string){
-    if (selecionados.includes(value)){
-      return setSelecionados((state) => state.filter(i => i !== value))
-    }
-    setSelecionados(state => [...state, value])
-  }
-
-  useEffect(() => {
-    console.log(selecionados)
-  }, [selecionados])
-
-  const handleClear = () => {
-    Alert.alert("Limpar seleção", "Deseja limpar a seleção?", [{
-      text: "Cancelar",
-      style: "cancel",
-    },
-    {
-      text: "Limpar",
-      onPress: () => setSelecionados([]),
-    }])
-  }
-
-  const handlerSearch = () => {
-   Alert.alert("Buscar receitas", "Deseja buscar receitas com os ingredientes selecionados?", [{
-    text: "Cancelar",
-    style: "cancel",
-  },
-{
-  text: "Buscar",
-  onPress: () => router.navigate(`../recipes/${selecionados.join(",")}`),
-}])
-  }
-
-useEffect(() => {
-   services.ingredients.findAll().then((data) => setIngredients(data));
-}, [])
+export function Ingredients({ ingredients, selecionados, onChange }: props) {
 
   return (
     <View style={{ flex: 1 }}>
@@ -61,21 +23,14 @@ useEffect(() => {
             <Ingredient
               key={ingredient.id}
               image={ingredient.image}
-              produto={ingredient.name}
+              name={ingredient.name}
+              produto={ingredient.produto}
               selected={selecionados.includes(String(ingredient.id))}
-              onPress={() => mudancaDeSelecao(String(ingredient.id))}
+              onPress={() => onChange(String(ingredient.id))}
             />
           ))
         }
       </ScrollView>
-
-    {selecionados.length > 0 && (
-      <Selected
-        quantity={selecionados.length}
-        onClear={() => handleClear()}
-        onSearch={() =>handlerSearch()}
-      />
-    )}
     </View>
   );
 }

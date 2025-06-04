@@ -2,6 +2,7 @@ export type IngredientResponse = {
   id: string
   name: string
   image: string
+  
 }
 
 export type PreparationsResponse = {
@@ -16,10 +17,5 @@ export type RecipeResponse = {
   name: string
   image: string
   minutes: number
-  ingredients: {
-    id: string
-  name: string
-  image: string
-  minutes: number
-  }
+ 
 }
