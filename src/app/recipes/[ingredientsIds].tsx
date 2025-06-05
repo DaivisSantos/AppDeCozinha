@@ -46,6 +46,7 @@ export function Recipes() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (<Recipe recipe={item}/>)}
         showsVerticalScrollIndicator={false}
+        columnWrapperStyle={{gap: 16}}
         style={styles.recipes}
         contentContainerStyle={styles.recipesContent}
         numColumns={2}
