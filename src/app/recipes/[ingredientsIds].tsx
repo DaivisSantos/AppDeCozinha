@@ -24,16 +24,17 @@ export function Recipes() {
       <View style={styles.header}>
         <MaterialIcons name="arrow-back" size={32} color="black" onPress={() => router.back()}/>
         <Text style={styles.title}>ingredientes</Text>
-      </View>
-
-    <Ingredients 
+      
+      <Ingredients 
       ingredients={ingredients.map(ingredient => ({
         ...ingredient,
         produto: ingredient.name 
       }))}
       selecionados={[]}
       onChange={() => {}}
+      horizontal={true}
     />
+      </View>
 
       <FlatList 
         data={["1"]}

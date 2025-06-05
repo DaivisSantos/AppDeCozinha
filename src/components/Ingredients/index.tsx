@@ -7,16 +7,20 @@ type props = {
   ingredients: IngredientProps[]
   selecionados: string[]
   onChange: (value: string) => void
+  horizontal?: boolean
 }
 
 
-export function Ingredients({ ingredients, selecionados, onChange }: props) {
+export function Ingredients({ ingredients, selecionados, onChange, horizontal=false }: props) {
 
   return (
-    <View style={{ flex: 1 }}>
+    <View>
       <ScrollView
+        
+        horizontal={horizontal}
         contentContainerStyle={styles.container}
         showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
       >
         {
           ingredients.map((ingredient) => (
