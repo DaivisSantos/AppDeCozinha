@@ -1,5 +1,6 @@
 import { theme } from "@/theme";
 import { StyleSheet } from "react-native";
+import { receiveMessageOnPort } from "worker_threads";
 
 export const styles = StyleSheet.create({
   container: {
@@ -9,11 +10,16 @@ export const styles = StyleSheet.create({
   header: {
     paddingHorizontal: 21,
     paddingTop: 62,
-    marginBottom: 24,
   },
   title: {
     fontSize: theme.fonts.size.heading.xl,
     lineHeight: 44,
     fontFamily: theme.fonts.family.bold,
+  },
+  recipes:{
+  padding: 32,
+  },
+  recipesContent: {
+    gap: 16,
   }
 })
