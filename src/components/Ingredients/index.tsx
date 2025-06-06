@@ -8,6 +8,7 @@ type props = {
   selecionados: string[]
   onChange: (value: string) => void
   horizontal?: boolean
+  
 }
 
 
@@ -28,7 +29,6 @@ export function Ingredients({ ingredients, selecionados, onChange, horizontal=fa
               key={ingredient.id}
               image={ingredient.image}
               name={ingredient.name}
-              produto={ingredient.produto}
               selected={selecionados.includes(String(ingredient.id))}
               onPress={() => onChange(String(ingredient.id))}
             />

@@ -31,10 +31,7 @@ export function Recipes() {
         <Text style={styles.title}>ingredientes</Text>
       
       <Ingredients 
-      ingredients={ingredients.map(ingredient => ({
-        ...ingredient,
-        produto: ingredient.name 
-      }))}
+      ingredients={ingredients}
       selecionados={[]}
       onChange={() => {}}
       horizontal={true}

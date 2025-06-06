@@ -5,13 +5,12 @@ import { services } from "@/services";
 export type IngredientProps = {
   name: string;
   image: string;
-  produto: string;
   selected?: boolean;
   id?: string | number;
   onPress?: () => void;
 }
 
-export function Ingredient({ image, produto, selected = true, ...rest }: IngredientProps & TouchableOpacityProps) {
+export function Ingredient({ image, name, selected = true, ...rest }: IngredientProps & TouchableOpacityProps) {
   
   const imageUrl = services.storage.imagePath
   
@@ -22,7 +21,7 @@ export function Ingredient({ image, produto, selected = true, ...rest }: Ingredi
       {...rest}
     >
       <Image source={{uri: `${imageUrl}/${image}`}} style={styles.image} />
-      <Text style={styles.title}>{produto}</Text>
+      <Text style={styles.title}>{name}</Text>
     </TouchableOpacity>
   );
 }
