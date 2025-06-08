@@ -1,4 +1,5 @@
 # 🍲 CookApp
+
 ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
 ![Versão](https://img.shields.io/badge/versão-0.1.0-blue)
 ![Plataformas](https://img.shields.io/badge/plataformas-iOS%20%7C%20Android-green)
@@ -20,10 +21,10 @@ O **CookApp** é um aplicativo desenvolvido com **React Native** e **Expo**, pen
 - **React Native** — Framework para desenvolvimento de apps mobile multiplataforma.
 - **Expo** — Ferramentas e serviços que aceleram o desenvolvimento com React Native.
 - **TypeScript** — Tipagem estática para maior robustez e escalabilidade do código.
-- **Supabase** (v1.35.6) — Backend-as-a-Service usado para banco de dados e autenticação.
+- **Supabase** — Backend-as-a-Service usado para banco de dados, autenticação e armazenamento de imagens.
 - **Expo Router** — Sistema de rotas nativo para projetos Expo.
-- **React Native Reanimated** — Biblioteca de animações fluidas e performáticas.
-- **@expo-google-fonts/poppins** — Gerenciamento de fontes personalizadas.
+- **React Native Reanimated** — Biblioteca para animações performáticas.
+- **@expo-google-fonts/poppins** — Integração de fontes personalizadas.
 
 ---
 
@@ -31,13 +32,16 @@ O **CookApp** é um aplicativo desenvolvido com **React Native** e **Expo**, pen
 
 ```bash
 ├── src/
-│   ├── app/                 # Telas e navegação principal
-│   │   ├── _layout.tsx      # Layout raiz do Expo Router
-│   │   ├── index.tsx        # Tela inicial (seleção de ingredientes)
-│   │   └── recipes/         # Tela de listagem de receitas
-│   │       ├── index.tsx
+│   ├── app/                     # Telas e navegação principal
+│   │   ├── _layout.tsx          # Layout raiz do Expo Router
+│   │   ├── index.tsx            # Tela de seleção de ingredientes
+│   │   ├── recipes/             # Tela de listagem de receitas
+│   │   │   ├── [ingredientsIds].tsx
+│   │   │   └── styles.ts
+│   │   └── recipe/              # Tela de detalhes da receita
+│   │       ├── [id].tsx
 │   │       └── styles.ts
-│   ├── components/          # Componentes reutilizáveis de UI
+│   ├── components/              # Componentes reutilizáveis
 │   │   ├── Button/
 │   │   ├── Ingredient/
 │   │   ├── Ingredients/
@@ -45,22 +49,23 @@ O **CookApp** é um aplicativo desenvolvido com **React Native** e **Expo**, pen
 │   │   ├── Recipe/
 │   │   ├── Selected/
 │   │   └── Step/
-│   ├── services/            # Integrações com APIs e Supabase
-│   │   ├── ingredients.ts
+│   ├── services/                # Integração com APIs/Supabase
+│   │   ├── ingredientsService.ts
+│   │   ├── preparationsService.ts
+│   │   ├── recipesService.ts
 │   │   ├── supabase.ts
-│   │   └── index.ts         # Configuração de caminhos e utilitários
-│   ├── theme/               # Estilos globais (cores, fontes, bordas)
+│   │   └── index.ts
+│   ├── theme/                   # Estilos globais
 │   │   ├── borderRadius.ts
 │   │   ├── colors.ts
 │   │   ├── fonts.ts
 │   │   └── index.tsx
-│   └── types/               # Tipagens TypeScript
-│       └── services.types.d.ts
-├── assets/                  # Imagens e recursos estáticos
-├── app.json                 # Configurações do Expo
-├── package.json             # Dependências e scripts
-├── tsconfig.json            # Configurações do TypeScript
-└── README.md                # Este arquivo
+│   └── services.types.d.ts      # Tipagens dos serviços
+├── assets/                      # Imagens e recursos estáticos
+├── app.json                     # Configurações do Expo
+├── package.json                 # Dependências e scripts
+├── tsconfig.json                # Configurações do TypeScript
+└── README.md                    # Este arquivo
 ```
 
 ---
@@ -71,7 +76,7 @@ O **CookApp** é um aplicativo desenvolvido com **React Native** e **Expo**, pen
 
 ```bash
 git clone https://github.com/DaivisSantos/AppDeCozinha.git
-cd CookApp
+cd AppDeCozinha
 ```
 
 ### 2. Instale as dependências
@@ -86,18 +91,14 @@ yarn install
 
 - Crie um projeto no [Supabase](https://supabase.com).
 - No arquivo `src/services/supabase.ts`, insira suas `SUPABASE_URL` e `SUPABASE_ANON_KEY`.
-- Crie a tabela `ingredients` com as colunas:
-
-  - `id` (UUID ou INTEGER)
-  - `name` (TEXT)
-  - `image` (TEXT – nome do arquivo da imagem, ex: `onion.png`)
+- Crie as tabelas `ingredients`, `recipes` e `preparations`.
 
 ### 4. Configure o Supabase Storage
 
 - Acesse a aba **Storage** no painel do Supabase.
 - Crie (ou utilize) um bucket chamado `ingredients`.
 - Envie as imagens dos ingredientes (ex: `onion.png`, `bacon.png`).
-- Configure a política de leitura do bucket para **público** (acesso anônimo).
+- Defina a política de leitura do bucket como **pública**.
 
 ### 5. Inicie o aplicativo
 
@@ -105,57 +106,33 @@ yarn install
 npx expo start
 ```
 
-Abra o app no celular com o **Expo Go** ou use um emulador/simulador.
-
----
-
-## 💡 Como Usar
-
-1. Na tela inicial, uma lista de ingredientes será exibida.
-2. Toque para selecionar os ingredientes que você possui.
-3. Um botão **"Encontrar"** aparecerá na parte inferior da tela.
-4. Toque nele para visualizar as receitas possíveis com os ingredientes escolhidos.
+Abra o app com o **Expo Go** no celular ou por um emulador/simulador.
 
 ---
 
 ## ✨ Funcionalidades
 
-### ✅ Já implementadas
+- **Seleção de Ingredientes**: Tela inicial com todos os ingredientes disponíveis para seleção múltipla.
+- **Busca Inteligente de Receitas**: O app busca receitas que combinam com os ingredientes selecionados.
+- **Listagem de Receitas**: Tela com visualização em grade das receitas compatíveis, incluindo nome, imagem e tempo de preparo.
+- **Detalhes da Receita**:
 
-- **Seleção de Ingredientes**
-  Interface intuitiva para seleção múltipla.
+  - Imagem da receita
+  - Nome e tempo de preparo
+  - Lista de ingredientes
+  - Modo de preparo em etapas
 
-- **Tela de Receitas**
-  Visualização das receitas disponíveis com base nos ingredientes selecionados.
-
-- **Tema Personalizado**
-  Definições centralizadas de cores, fontes e bordas.
-
-- **Integração com Supabase**
-  Busca de dados e imagens diretamente via Supabase e Supabase Storage.
-
-- **Carregamento Dinâmico de Imagens**
-  As imagens dos ingredientes são carregadas automaticamente do bucket do Supabase.
-
-### 🚧 Em desenvolvimento
-
-- **Busca real por receitas**
-  Atualmente a tela estática será substituída por uma lógica baseada nos ingredientes selecionados.
+- **Interface Reativa com Animações**: Transições suaves com `react-native-reanimated`, como o painel deslizante de seleção.
+- **Tema Customizado**: Paleta de cores, fontes e bordas centralizadas para consistência visual.
 
 ---
 
-## 🛠️ Para Desenvolvedores
+## 💡 Como Usar
 
-- **TypeScript**
-  Tipagem de dados para maior segurança. Ver `src/types/services.types.d.ts`.
-
-- **Componentização**
-  Estrutura modular com componentes como `Ingredient`, `Selected`, `Recipe`.
-
-- **Animações**
-  Uso da biblioteca `react-native-reanimated` para efeitos visuais.
-
-- **URLs centralizadas**
-  A URL base do bucket de imagens está em `src/services/index.ts`, facilitando manutenção e escalabilidade.
+1. Abra o app e veja a lista de ingredientes.
+2. Toque nos itens que você tem em casa.
+3. Um painel inferior surgirá com o botão **"Encontrar"**.
+4. Toque para ver receitas compatíveis.
+5. Escolha uma receita para visualizar os detalhes e modo de preparo.
 
 ---
