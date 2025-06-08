@@ -2,7 +2,11 @@ import { StyleSheet } from "react-native"
 
 export const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flexWrap: "wrap",
+    flexDirection: "row",
     gap: 12,
   },
+  vertical: {
+    paddingBottom: 155
+  } 
 })

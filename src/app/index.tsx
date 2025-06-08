@@ -70,13 +70,14 @@ useEffect(() => {
         Descubra receitas baseadas nos produtos que você escolheu
         </Text>
 
-      <View style={{ paddingVertical: 12 }}>
+      
         <Ingredients
           ingredients={ingredients}
           selecionados={selecionados}
           onChange={mudancaDeSelecao}
+          horizontal={false}
         />
-      </View>
+      
 
             {selecionados.length > 0 && (
       <Selected

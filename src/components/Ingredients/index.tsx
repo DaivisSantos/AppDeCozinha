@@ -17,7 +17,7 @@ export function Ingredients({ ingredients, selecionados, onChange, horizontal=fa
       <ScrollView
         
         horizontal={horizontal}
-        contentContainerStyle={[styles.container, !horizontal && { flexWrap: "wrap" }]}
+        contentContainerStyle={[styles.container, !horizontal && styles.vertical]}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >

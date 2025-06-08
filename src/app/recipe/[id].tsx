@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { FlatList, Image, Text, View } from "react-native"
+import { FlatList, Image, ScrollView, Text, View } from "react-native"
 import MaterialIcons from "@expo/vector-icons/MaterialIcons"
 import { Redirect, router, useLocalSearchParams } from "expo-router"
 
@@ -47,7 +47,7 @@ export default function Recipes() {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Image source={{ uri: recipe.image }} style={styles.image} />
 
       <View style={styles.body}>
@@ -66,6 +66,7 @@ export default function Recipes() {
           ingredients={ingredients}
           selecionados={[]}
           onChange={() => {}}
+          horizontal={true}
         />
         </View>
 
@@ -82,6 +83,6 @@ export default function Recipes() {
           />
         </View>
       </View>
-    </View>
+    </ScrollView>
   )
 }

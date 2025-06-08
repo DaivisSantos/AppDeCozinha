@@ -2,10 +2,9 @@ import { StyleSheet } from "react-native";
 import { theme } from "@/theme"
 
 const styles = StyleSheet.create({
-  container: {
+    container: {
     flex: 1,
-    padding: 24,
-    paddingBottom: 200,
+    padding: 22
   },
   title: {
     fontSize: theme.fonts.size.heading.xl,
