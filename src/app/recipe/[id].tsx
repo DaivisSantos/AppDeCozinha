@@ -61,13 +61,13 @@ export default function Recipes() {
           <Text style={styles.name}>{recipe.name}</Text>
           <Text style={styles.time}>{recipe.minutes} minutos de preparo</Text>
         </View>
-
+        <View style={{paddingHorizontal: 12}}>
         <Ingredients 
           ingredients={ingredients}
           selecionados={[]}
           onChange={() => {}}
-
         />
+        </View>
 
         <View style={styles.content}>
           <Text style={styles.preparation}>Modo de preparado</Text>

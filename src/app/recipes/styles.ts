@@ -1,6 +1,5 @@
 import { theme } from "@/theme";
 import { StyleSheet } from "react-native";
-import { receiveMessageOnPort } from "worker_threads";
 
 export const styles = StyleSheet.create({
   container: {

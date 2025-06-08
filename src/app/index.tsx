@@ -6,11 +6,13 @@ import { services } from '@/services';
 import { router } from 'expo-router';
 import { IngredientResponse } from '@/services/services.types';
 import { Selected } from '@/components/Selected';
+import { Loading } from '@/components/Loading';
 
 
 export default function Index() {
   
     const [ingredients, setIngredients] = useState<IngredientResponse[]>([])
+    const [isLoading, setIsLoading] = useState(true)
   const [selecionados, setSelecionados] = useState<string[]>([])
 
   function mudancaDeSelecao(value: string){
@@ -47,8 +49,15 @@ export default function Index() {
   }
 
 useEffect(() => {
-   services.ingredients.findAll().then((data) => setIngredients(data));
+   services.ingredients.findAll()
+     .then((data) => setIngredients(data))
+     .finally(() => setIsLoading(false));
+  
 }, [])
+
+ if (isLoading) {
+       return <Loading />
+     }
   
   return (
     <View style={styles.container}>
@@ -61,15 +70,13 @@ useEffect(() => {
         Descubra receitas baseadas nos produtos que você escolheu
         </Text>
 
-      
+      <View style={{ paddingVertical: 12 }}>
         <Ingredients
-          ingredients={ingredients.map(ingredient => ({
-            ...ingredient,
-            produto: ingredient.name
-          }))}
+          ingredients={ingredients}
           selecionados={selecionados}
           onChange={mudancaDeSelecao}
         />
+      </View>
 
             {selecionados.length > 0 && (
       <Selected

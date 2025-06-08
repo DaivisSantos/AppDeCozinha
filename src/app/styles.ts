@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
+    paddingBottom: 200,
   },
   title: {
     fontSize: theme.fonts.size.heading.xl,
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     marginTop: 8,
     color: theme.colors.gray_400,
-  }
+ },
 });
 
 export default styles;

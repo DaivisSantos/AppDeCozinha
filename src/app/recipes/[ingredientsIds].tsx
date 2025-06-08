@@ -29,7 +29,7 @@ export function Recipes() {
       <View style={styles.header}>
         <MaterialIcons name="arrow-back" size={32} color="black" onPress={() => router.back()}/>
         <Text style={styles.title}>ingredientes</Text>
-      
+      <View style={{paddingVertical: 12}}>
       <Ingredients 
       ingredients={ingredients}
       selecionados={[]}
@@ -37,11 +37,12 @@ export function Recipes() {
       horizontal={true}
     />
       </View>
+      </View>
 
       <FlatList 
         data={recipes}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (<Recipe recipe={item}/>)}
+        renderItem={({ item }) => (<Recipe recipe={item} onPressOut={() => router.push(`/recipe/${item.id}`)}/>)}
         showsVerticalScrollIndicator={false}
         columnWrapperStyle={{gap: 16}}
         style={styles.recipes}

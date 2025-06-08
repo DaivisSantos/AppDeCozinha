@@ -1,7 +1,6 @@
-import { ScrollView, View } from "react-native";
+import { ScrollView } from "react-native";
 import { Ingredient, IngredientProps } from "../Ingredient";
 import { styles } from "./styles";
-import { Selected } from "../Selected";
 
 type props = {
   ingredients: IngredientProps[]
@@ -15,11 +14,10 @@ type props = {
 export function Ingredients({ ingredients, selecionados, onChange, horizontal=false }: props) {
 
   return (
-    <View>
       <ScrollView
         
         horizontal={horizontal}
-        contentContainerStyle={styles.container}
+        contentContainerStyle={[styles.container, !horizontal && { flexWrap: "wrap" }]}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
@@ -35,7 +33,6 @@ export function Ingredients({ ingredients, selecionados, onChange, horizontal=fa
           ))
         }
       </ScrollView>
-    </View>
   );
 }
-export default Ingredients;     
+export default Ingredients;
