@@ -72,15 +72,16 @@ export default function Recipes() {
 
         <View style={styles.content}>
           <Text style={styles.preparation}>Modo de preparado</Text>
-
+       
           <FlatList
             data={preparations}
             renderItem={({ item }) => (
               <Step step={item.step} description={item.description} />
             )}
-            contentContainerStyle={{ gap: 16 }}
+            contentContainerStyle={{ gap: 16, paddingBottom: 100 }}
             showsVerticalScrollIndicator={false}
           />
+          
         </View>
       </View>
     </ScrollView>

@@ -136,3 +136,7 @@ Abra o app com o **Expo Go** no celular ou por um emulador/simulador.
 5. Escolha uma receita para visualizar os detalhes e modo de preparo.
 
 ---
+
+## 🙏 Agradecimentos
+
+Gostaria de deixar um agradecimento especial ao **Rodrigo Gonçalves**, do canal do YouTube, que disponibilizou o projeto original que serviu como base para meus estudos. O conteúdo dele foi fundamental para me ajudar a entender várias mecânicas importantes do React Native e impulsionar meu aprendizado. Recomendo fortemente o canal para quem está começando e quer evoluir na área!
